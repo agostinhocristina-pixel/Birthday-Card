@@ -187,6 +187,109 @@
       box-shadow: 0 10px 25px rgba(100, 60, 65, 0.14);
     }
 
+    .open-button:active {
+      transform: scale(0.97);
+    }
+
+    .open-button.success {
+      background: var(--wine);
+      color: white;
+      border-color: var(--wine);
+      transform: scale(1.04);
+    }
+
+    /* =========================================
+       CLICK FEEDBACK
+    ========================================= */
+
+    .click-feedback {
+      min-height: 72px;
+
+      margin-top: 22px;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      text-align: center;
+
+      pointer-events: none;
+    }
+
+    .click-number {
+      font-size: 34px;
+      font-weight: 600;
+
+      color: var(--wine);
+
+      line-height: 1;
+
+      opacity: 0;
+    }
+
+    .click-message {
+      margin-top: 5px;
+
+      max-width: 330px;
+
+      font-size: 19px;
+
+      color: var(--soft-text);
+
+      opacity: 0;
+    }
+
+    .click-feedback.show .click-number {
+      animation: feedbackNumber 0.75s ease forwards;
+    }
+
+    .click-feedback.show .click-message {
+      animation: feedbackMessage 0.9s ease 0.05s forwards;
+    }
+
+    @keyframes feedbackNumber {
+
+      0% {
+        opacity: 0;
+        transform: translateY(15px) scale(0.8);
+      }
+
+      30% {
+        opacity: 1;
+        transform: translateY(0) scale(1.15);
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-12px) scale(1);
+      }
+
+    }
+
+    @keyframes feedbackMessage {
+
+      0% {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+
+      25% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      75% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-5px);
+      }
+
+    }
+
     /* =========================================
        ENVELOPE / TRANSITION
     ========================================= */
@@ -288,23 +391,6 @@
       overflow: hidden;
     }
 
-    .envelope-front::before {
-      content: "";
-
-      position: absolute;
-
-      left: 0;
-      bottom: 0;
-
-      width: 0;
-      height: 0;
-
-      border-left: 50% solid transparent;
-      border-right: 50% solid transparent;
-
-      border-bottom: 0;
-    }
-
     /* Bottom flap */
 
     .bottom-flap {
@@ -318,7 +404,13 @@
 
       background: var(--envelope-dark);
 
-      clip-path: polygon(0 0, 50% 72%, 100% 0, 100% 100%, 0 100%);
+      clip-path: polygon(
+        0 0,
+        50% 72%,
+        100% 0,
+        100% 100%,
+        0 100%
+      );
 
       z-index: 4;
     }
@@ -336,7 +428,11 @@
 
       background: #eadbd4;
 
-      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      clip-path: polygon(
+        0 0,
+        100% 0,
+        50% 100%
+      );
 
       transform-origin: top center;
 
@@ -350,7 +446,7 @@
       transform: rotateX(180deg);
     }
 
-    /* Small seal */
+    /* Seal */
 
     .seal {
       position: absolute;
@@ -379,7 +475,8 @@
 
       z-index: 10;
 
-      box-shadow: 0 5px 15px rgba(90, 50, 55, 0.15);
+      box-shadow:
+        0 5px 15px rgba(90, 50, 55, 0.15);
 
       transition:
         opacity 0.35s ease,
@@ -539,10 +636,6 @@
       margin-bottom: 0 !important;
     }
 
-    /* =========================================
-       SIGNATURE EXTRA REVEAL
-    ========================================= */
-
     .signature strong {
       display: inline-block;
 
@@ -563,7 +656,7 @@
     }
 
     /* =========================================
-       ANIMATIONS
+       GENERAL ANIMATIONS
     ========================================= */
 
     @keyframes fadeUp {
@@ -615,7 +708,8 @@
       }
 
       50% {
-        box-shadow: 0 5px 20px rgba(140, 93, 102, 0.10);
+        box-shadow:
+          0 5px 20px rgba(140, 93, 102, 0.10);
       }
 
     }
@@ -712,7 +806,7 @@
 
     <button class="open-button" id="openButton">
 
-      OPEN MY LETTER
+      OPEN
 
       <span>
         just for you
@@ -720,24 +814,28 @@
 
     </button>
 
+    <div class="click-feedback" id="clickFeedback">
+
+      <div class="click-number" id="clickNumber"></div>
+
+      <div class="click-message" id="clickMessage"></div>
+
+    </div>
+
   </main>
 
 
   <!-- =========================================
-       ENVELOPE ANIMATION
+       ENVELOPE
   ========================================= -->
 
   <div class="envelope-stage" id="envelopeStage">
 
     <div class="envelope">
 
-      <!-- Letter emerging from envelope -->
-
       <div class="envelope-letter">
         For you.
       </div>
-
-      <!-- Envelope front -->
 
       <div class="envelope-front">
 
@@ -746,8 +844,6 @@
         <div class="top-flap"></div>
 
       </div>
-
-      <!-- Seal -->
 
       <div class="seal">
         ♥️
@@ -833,44 +929,213 @@
 
   <script>
 
-    const openButton = document.getElementById("openButton");
-    const hero = document.getElementById("hero");
-    const envelopeStage = document.getElementById("envelopeStage");
-    const letterSection = document.getElementById("letterSection");
+    const openButton =
+      document.getElementById("openButton");
+
+    const hero =
+      document.getElementById("hero");
+
+    const envelopeStage =
+      document.getElementById("envelopeStage");
+
+    const letterSection =
+      document.getElementById("letterSection");
+
+    const clickFeedback =
+      document.getElementById("clickFeedback");
+
+    const clickNumber =
+      document.getElementById("clickNumber");
+
+    const clickMessage =
+      document.getElementById("clickMessage");
+
+
+    let clickCount = 0;
+
+
+    /*
+      The 26 messages.
+    */
+
+    const messages = [
+
+      "Nope. 😌 Tenta outra vez.",
+
+      "Whoops… não foi dessa vez.",
+
+      "Ainda não, amor.",
+
+      "Tens mesmo de continuar. 😂",
+
+      "Eu disse OPEN… não disse one click. 🤭",
+
+      "Patience, birthday girl.",
+
+      "Estás a desistir? 👀",
+
+      "Nem pensar. Outra vez.",
+
+      "Quase… mentira. 😂",
+
+      "Já estás a perceber o jogo?",
+
+      "Metade do caminho. Maybe.",
+
+      "Não te canses ainda.",
+
+      "13… unlucky? Not today.",
+
+      "Continua. Eu sei que consegues.",
+
+      "Ainda faltam uns quantos. 🤭",
+
+      "You’re really committed to this, huh?",
+
+      "Não foi dessa vez, Pitoka. 😅",
+
+      "Calma. A carta não vai fugir.",
+
+      "Estás quase… talvez.",
+
+      "20 cliques e ainda nada. 😂",
+
+      "You’ve got this.",
+
+      "Só mais quatro.",
+
+      "Agora já não podes desistir.",
+
+      "Two more…",
+
+      "One more. 🤭",
+
+      "Okay… you earned it. ❤️"
+
+    ];
+
+
+    /*
+      Every click.
+    */
 
     openButton.addEventListener("click", function () {
 
+      clickCount++;
+
+
       /*
-        1. Fade away the opening.
+        If this is not the 26th click,
+        show the next message.
       */
 
-      hero.classList.add("hide");
+      if (clickCount < 26) {
+
+        clickNumber.textContent =
+          clickCount;
+
+        clickMessage.textContent =
+          messages[clickCount - 1];
+
+
+        /*
+          Restart the animation.
+        */
+
+        clickFeedback.classList.remove("show");
+
+        void clickFeedback.offsetWidth;
+
+        clickFeedback.classList.add("show");
+
+
+        /*
+          Small button movement.
+        */
+
+        openButton.animate(
+
+          [
+            {
+              transform: "scale(1)"
+            },
+
+            {
+              transform: "scale(0.94)"
+            },
+
+            {
+              transform: "scale(1.04)"
+            },
+
+            {
+              transform: "scale(1)"
+            }
+          ],
+
+          {
+            duration: 380,
+            easing: "ease-out"
+          }
+
+        );
+
+
+        return;
+
+      }
+
 
       /*
-        2. Show the envelope.
+        =====================================
+        26TH CLICK
+        =====================================
+      */
+
+      clickNumber.textContent = "26";
+
+      clickMessage.textContent =
+        "Okay… you earned it. ❤️";
+
+      clickFeedback.classList.remove("show");
+
+      void clickFeedback.offsetWidth;
+
+      clickFeedback.classList.add("show");
+
+
+      openButton.classList.add("success");
+
+      openButton.disabled = true;
+
+
+      /*
+        Give her a moment to see
+        the final message.
       */
 
       setTimeout(function () {
 
+        hero.classList.add("hide");
+
         envelopeStage.classList.add("active");
 
-      }, 500);
+      }, 1000);
 
 
       /*
-        3. After the envelope opens,
-           reveal the actual letter.
+        Open the envelope.
       */
 
       setTimeout(function () {
 
         envelopeStage.classList.remove("active");
 
-      }, 2600);
+      }, 3500);
 
 
       /*
-        4. Bring the letter into view.
+        Reveal the letter.
       */
 
       setTimeout(function () {
@@ -878,11 +1143,14 @@
         letterSection.classList.add("visible");
 
         letterSection.scrollIntoView({
+
           behavior: "smooth",
+
           block: "start"
+
         });
 
-      }, 3000);
+      }, 3900);
 
     });
 
