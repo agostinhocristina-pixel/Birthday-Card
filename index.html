@@ -1,1 +1,482 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>For You, On Your Birthday</title><style>:root{--bg:#fbf7f2;--paper:#fffdfb;--ink:#403535;--muted:#806d6d;--accent:#8d5f67;--line:#dfcfca}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Georgia,"Times New Roman",serif;line-height:1.75}.page{max-width:720px;margin:auto;padding:42px 24px 70px}.hero{text-align:center;padding:30px 0 36px}.eyebrow{font:600 11px/1.2 Arial,sans-serif;letter-spacing:3px;text-transform:uppercase;color:var(--accent)}h1{font-size:42px;line-height:1.12;font-weight:400;margin:14px 0 10px}.subtitle{font-style:italic;color:var(--muted);font-size:17px}.divider{width:54px;height:1px;background:var(--accent);margin:28px auto}.card{background:var(--paper);border:1px solid var(--line);padding:34px 30px;box-shadow:0 10px 35px rgba(80,55,55,.07)}h2{font-size:25px;font-weight:400;text-align:center;margin:0 0 26px}h3{font-size:18px;font-weight:400;color:var(--accent);margin:28px 0 7px}p{margin:0 0 17px}.closing{text-align:center;margin-top:30px}.signature{font-style:italic;font-size:19px}.audio{margin-top:30px;padding:26px 20px;text-align:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}.audio p{color:var(--muted);font-size:15px}audio{width:100%;max-width:420px}.final{text-align:center;padding:45px 12px 10px}.final h2{font-size:24px}.footer{font:11px Arial,sans-serif;letter-spacing:2px;text-transform:uppercase;color:var(--muted);text-align:center;margin-top:35px}@media(max-width:520px){.page{padding:28px 15px 50px}h1{font-size:34px}.card{padding:27px 20px}}</style></head><body><main class="page"><section class="hero"><div class="eyebrow">From Cape Town, with love</div><h1>For You, On Your Birthday</h1><div class="subtitle">A little something I wanted to give you from here.</div><div class="divider"></div><p>I couldn't be there to hand this to you myself, so I wanted to leave a little piece of me with you instead.</p></section><article class="card"><h2>A little something behind each gift</h2><h3>The sneakers</h3><p>These are because I pay attention. Yesterday you mentioned, almost casually, that you were in need of a pair, and of course, I stored that information away. I wanted to give you something you actually needed, but also something that reminds you that I notice the little things you say.</p><h3>The tulips</h3><p>These are because they're beautiful, and because I wanted to give you flowers. I think a beautiful woman deserves flowers every now and then.</p><p>And, if I'm being completely honest, I remembered that little moment when I sent you pictures of tulips while I was travelling and you told me they were your favourite. I didn't forget.</p><h3>And the necklace</h3><p>This one is a little different.</p><p>I wanted to give you something a bit more special. Something you could keep and wear, and that might, every now and then, make you think of me.</p><p>In the end, I think these three gifts say a little something about how I feel about you:</p><p style="text-align:center;font-size:18px"><strong>I listen to you, I like taking care of you, and I like having little things around you that remind you of me.</strong></p><div class="closing"><p>I wish I could be there to see your face when you open everything.</p><p>But until then, I hope this makes the distance feel just a little bit smaller.</p><p><strong>Happy birthday, my love.</strong></p><p class="signature">With all my love,<br>Agostinho</p></div><div class="audio"><h3 style="margin-top:0">A little more from me</h3><p>There are some things I'd rather say than write.</p><audio controls preload="none"><source src="audio-message.mp3" type="audio/mpeg">Your browser does not support audio playback.</audio></div></article><section class="final"><h2>Until I can be there beside you…</h2><p>I hope these little things remind you that you are loved, you are remembered, and you are never really that far from me.</p><p style="font-size:24px;color:#8d5f67">♡</p><p><strong>Happy birthday, my love.</strong></p><div class="footer">Cape Town → Maputo · With love, always.</div></section></main></body></html>
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>For You, Amor.</title>
+
+  <style>
+    :root {
+      --cream: #faf6f1;
+      --paper: #fffdf9;
+      --wine: #8c5d66;
+      --text: #403636;
+      --soft-text: #806e6e;
+      --line: #e4d5cf;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--text);
+      font-family: Georgia, "Times New Roman", serif;
+      line-height: 1.8;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: auto;
+      padding: 0 20px 70px;
+    }
+
+    /* OPENING */
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 50px 10px;
+      animation: fadeUp 1.2s ease;
+    }
+
+    .small-title {
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--wine);
+    }
+
+    h1 {
+      font-size: clamp(42px, 9vw, 64px);
+      line-height: 1.05;
+      font-weight: 400;
+      margin: 18px 0 12px;
+    }
+
+    .subtitle {
+      font-size: 18px;
+      font-style: italic;
+      color: var(--soft-text);
+    }
+
+    .divider {
+      width: 52px;
+      height: 1px;
+      background: var(--wine);
+      margin: 28px auto;
+    }
+
+    .hero p {
+      max-width: 500px;
+      color: var(--soft-text);
+    }
+
+    .open-button {
+      display: inline-block;
+      margin-top: 26px;
+      padding: 12px 30px;
+      border: 1px solid var(--wine);
+      color: var(--wine);
+      text-decoration: none;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      font-weight: bold;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: 0.3s;
+    }
+
+    .open-button:hover {
+      background: var(--wine);
+      color: white;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 75px 0;
+    }
+
+    .section-label {
+      text-align: center;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--wine);
+      margin-bottom: 12px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 32px;
+      line-height: 1.25;
+      font-weight: 400;
+      margin: 0 0 35px;
+    }
+
+    /* LETTER */
+
+    .letter {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 44px 36px;
+      box-shadow: 0 15px 40px rgba(70, 45, 45, 0.06);
+    }
+
+    .letter h3 {
+      font-size: 26px;
+      font-weight: 400;
+      margin: 0 0 27px;
+    }
+
+    .letter p {
+      margin: 0 0 20px;
+    }
+
+    .special-line {
+      text-align: center;
+      font-size: 20px;
+      margin: 32px 0;
+    }
+
+    .signature {
+      text-align: right;
+      font-size: 19px;
+      font-style: italic;
+      margin-top: 35px;
+    }
+
+    /* LITTLE THINGS */
+
+    .little-things {
+      min-height: 65vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .little-things h2 {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
+
+    .little-things > p {
+      max-width: 540px;
+      margin: 0 auto;
+      color: var(--soft-text);
+    }
+
+    .three-things {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 13px;
+      margin-top: 40px;
+    }
+
+    .thing {
+      min-height: 145px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 22px;
+      background: rgba(255, 253, 249, 0.65);
+      border: 1px solid var(--line);
+      font-style: italic;
+      font-size: 17px;
+    }
+
+    /* FINAL */
+
+    .final {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      padding: 90px 15px;
+    }
+
+    .final h2 {
+      font-size: 40px;
+      margin-bottom: 25px;
+    }
+
+    .final-message {
+      font-size: 21px;
+      max-width: 570px;
+      margin: 0 auto 25px;
+    }
+
+    .love-line {
+      font-size: 25px;
+      margin: 35px 0 10px;
+    }
+
+    .ending {
+      margin-top: 55px;
+      font-family: Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--soft-text);
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+
+      .container {
+        padding: 0 15px 50px;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+
+      .letter {
+        padding: 30px 21px;
+      }
+
+      .three-things {
+        grid-template-columns: 1fr;
+      }
+
+      .thing {
+        min-height: 95px;
+      }
+
+      .little-things h2 {
+        font-size: 32px;
+      }
+
+      .final h2 {
+        font-size: 34px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <!-- OPENING -->
+
+  <section class="hero">
+
+    <div class="small-title">
+      A little something for you
+    </div>
+
+    <h1>
+      For You, Amor.
+    </h1>
+
+    <div class="subtitle">
+      Something I wanted you to have.
+    </div>
+
+    <div class="divider"></div>
+
+    <p>
+      Some things are easier to write than to say.
+    </p>
+
+    <a href="#letter" class="open-button">
+      Open
+    </a>
+
+  </section>
+
+
+  <!-- LETTER -->
+
+  <section id="letter">
+
+    <div class="section-label">
+      A message for you
+    </div>
+
+    <h2>
+      My love, my Pitoka.
+    </h2>
+
+    <article class="letter">
+
+      <h3>
+        Meu amor, minha Pitoka!
+      </h3>
+
+      <p>
+        Trust me, fiquei a semana toda a pensar no que escrever-te neste dia tão especial, e ainda me encontro completamente incerto se todas as palavras deste mundo seriam capazes de descrever a pessoa magnífica que tu és, o quão especial tu és para mim, meu amor.
+      </p>
+
+      <p class="special-line">
+        <strong>You’ve got me.</strong>
+      </p>
+
+      <p>
+        Quero, através deste pequeno bilhete, desejar-te um feliz aniversário, amor.
+      </p>
+
+      <p>
+        I hope you have the best day ever — you deserve it. Não apenas hoje, mas para todo o sempre. Tu mereces o melhor que a vida pode oferecer a alguém, e espero sinceramente que a vida te dê muito, muito mais do que aquilo que alguma vez poderás pedir.
+      </p>
+
+      <p>
+        Quero que saibas que te admiro bastante. Admiro a tua força, a tua personalidade, a tua determinação e a maneira como és simplesmente tu. Tu és uma em um milhão. <strong>You’re unique, and you have all my love, support and cheering.</strong>
+      </p>
+
+      <p>
+        Mal posso esperar para te ver novamente, meu amor.
+      </p>
+
+      <p>
+        Espero sinceramente que estes pequenos mimos te agradem, façam o teu dia um pouco mais especial e sejam um pequeno reflexo de que, não importa o quão distantes possamos estar um do outro agora, eu jamais deixaria passar o teu aniversário em branco. Te amo demais para permitir que tal “Massinguita” acontecesse. 😅
+      </p>
+
+      <p>
+        Espero que, quando olhares para estas pequenas coisas hoje, te lembres apenas de uma coisa:
+      </p>
+
+      <p class="special-line">
+        <strong>
+          Eu te amo, eu te ouço — até nos pequenos detalhes — e tu és digna de todo o meu cuidado, your spoiled little creature! 😅
+        </strong>
+      </p>
+
+      <p>
+        Happy birthday, minha pessoa favorita.
+      </p>
+
+      <p class="signature">
+        Com Amor,<br>
+        <strong>Your Christian Grey! 🤭</strong>
+      </p>
+
+    </article>
+
+  </section>
+
+
+  <!-- LITTLE THINGS -->
+
+  <section class="little-things">
+
+    <div class="section-label">
+      And yes…
+    </div>
+
+    <h2>
+      I remembered the little things.
+    </h2>
+
+    <p>
+      Maybe that's one of the things about loving someone:
+      the little things stop being little.
+    </p>
+
+    <div class="three-things">
+
+      <div class="thing">
+        You needed it.
+      </div>
+
+      <div class="thing">
+        You loved it.
+      </div>
+
+      <div class="thing">
+        I wanted you to have it.
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FINAL -->
+
+  <section class="final">
+
+    <div class="section-label">
+      One last thing
+    </div>
+
+    <h2>
+      Even from far away…
+    </h2>
+
+    <p class="final-message">
+      I hope you felt a little closer to me today.
+    </p>
+
+    <p>
+      Because distance is only distance.
+    </p>
+
+    <p>
+      It doesn't change how much I think about you.<br>
+      It doesn't change how much I care about you.
+    </p>
+
+    <div class="divider"></div>
+
+    <p class="love-line">
+      <strong>
+        Mesmo longe, eu estou presente.
+      </strong>
+    </p>
+
+    <p>
+      And I can't wait to see you again.
+    </p>
+
+    <div style="margin-top: 50px;">
+
+      <p>
+        <strong>
+          Happy Birthday, minha pessoa favorita.
+        </strong>
+      </p>
+
+    </div>
+
+    <div class="ending">
+      With all my love, always.
+    </div>
+
+  </section>
+
+</div>
+
+</body>
+</html>
