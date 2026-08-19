@@ -42,7 +42,7 @@
     .container {
       max-width: 760px;
       margin: auto;
-      padding: 0 20px 70px;
+      padding: 0 20px 45px;
     }
 
     /* =========================
@@ -61,7 +61,7 @@
 
       padding: 50px 10px;
 
-      animation: fadeUp 1.2s ease;
+      animation: heroAppear 1.8s ease both;
     }
 
     .small-title {
@@ -71,6 +71,8 @@
       letter-spacing: 3px;
       text-transform: uppercase;
       color: var(--wine);
+
+      animation: fadeIn 1.5s ease 0.2s both;
     }
 
     h1 {
@@ -78,13 +80,18 @@
       font-size: clamp(48px, 11vw, 76px);
       line-height: 1;
       font-weight: 500;
+
       margin: 18px 0 12px;
+
+      animation: titleReveal 1.4s ease 0.35s both;
     }
 
     .subtitle {
       font-size: 24px;
       font-style: italic;
       color: var(--soft-text);
+
+      animation: fadeIn 1.5s ease 0.65s both;
     }
 
     .divider {
@@ -92,20 +99,28 @@
       height: 1px;
       background: var(--wine);
       margin: 28px auto;
+
+      animation: lineReveal 1.2s ease 0.8s both;
     }
 
     .hero p {
       max-width: 500px;
       color: var(--soft-text);
       font-size: 22px;
+
+      animation: fadeIn 1.5s ease 0.95s both;
     }
+
+    /* =========================
+       OPEN BUTTON
+    ========================= */
 
     .open-button {
       display: inline-block;
 
       margin-top: 26px;
 
-      padding: 10px 30px;
+      padding: 11px 32px;
 
       border: 1px solid var(--wine);
 
@@ -121,16 +136,33 @@
 
       text-transform: uppercase;
 
-      transition: 0.3s;
+      transition:
+        background 0.4s ease,
+        color 0.4s ease,
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+
+      animation:
+        fadeIn 1.5s ease 1.15s both,
+        gentlePulse 3.5s ease-in-out 2.5s infinite;
     }
 
     .open-button:hover {
       background: var(--wine);
       color: white;
+
+      transform: translateY(-2px);
+
+      box-shadow:
+        0 8px 20px rgba(140, 93, 102, 0.15);
+    }
+
+    .open-button:active {
+      transform: scale(0.97);
     }
 
     /* =========================
-       LETTER SECTION
+       LETTER
     ========================= */
 
     section {
@@ -154,10 +186,6 @@
       margin-bottom: 25px;
     }
 
-    /* =========================
-       HANDWRITTEN LETTER
-    ========================= */
-
     .letter {
       position: relative;
 
@@ -177,7 +205,6 @@
 
       line-height: 1.65;
 
-      /* Subtle paper texture */
       background-image:
         radial-gradient(
           rgba(120, 90, 80, 0.045) 0.7px,
@@ -185,9 +212,19 @@
         );
 
       background-size: 7px 7px;
+
+      opacity: 0;
+      transform: translateY(35px);
+
+      transition:
+        opacity 1.1s ease,
+        transform 1.1s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    /* Small decorative detail */
+    .letter.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     .letter::before {
       content: "♥️";
@@ -236,19 +273,72 @@
     }
 
     /* =========================
-       ANIMATION
+       ANIMATIONS
     ========================= */
 
-    @keyframes fadeUp {
+    @keyframes heroAppear {
 
       from {
         opacity: 0;
-        transform: translateY(18px);
+      }
+
+      to {
+        opacity: 1;
+      }
+
+    }
+
+    @keyframes fadeIn {
+
+      from {
+        opacity: 0;
+        transform: translateY(10px);
       }
 
       to {
         opacity: 1;
         transform: translateY(0);
+      }
+
+    }
+
+    @keyframes titleReveal {
+
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+    }
+
+    @keyframes lineReveal {
+
+      from {
+        opacity: 0;
+        transform: scaleX(0);
+      }
+
+      to {
+        opacity: 1;
+        transform: scaleX(1);
+      }
+
+    }
+
+    @keyframes gentlePulse {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 rgba(140, 93, 102, 0);
+      }
+
+      50% {
+        box-shadow: 0 5px 18px rgba(140, 93, 102, 0.10);
       }
 
     }
@@ -320,7 +410,7 @@
       Some things are easier to write than to say.
     </p>
 
-    <a href="#letter" class="open-button">
+    <a href="#letter" class="open-button" id="openLetter">
       Open
     </a>
 
@@ -337,7 +427,7 @@
       A message for you
     </div>
 
-    <article class="letter">
+    <article class="letter" id="letterContent">
 
       <p>
         Trust me, fiquei a semana toda a pensar no que escrever-te neste dia tão especial, e ainda me encontro completamente incerto se todas as palavras deste mundo seriam capazes de descrever a pessoa magnífica que tu és, o quão especial tu és para mim, meu amor.
@@ -400,6 +490,44 @@
   </section>
 
 </div>
+
+
+<script>
+
+  /*
+    Subtle letter-opening animation.
+    The letter is revealed when "OPEN" is pressed.
+  */
+
+  const openButton = document.getElementById("openLetter");
+  const letter = document.getElementById("letterContent");
+
+  openButton.addEventListener("click", function () {
+
+    setTimeout(function () {
+
+      letter.classList.add("visible");
+
+    }, 250);
+
+  });
+
+  /*
+    If the user arrives directly at the letter,
+    reveal it automatically.
+  */
+
+  if (window.location.hash === "#letter") {
+
+    setTimeout(function () {
+
+      letter.classList.add("visible");
+
+    }, 500);
+
+  }
+
+</script>
 
 </body>
 </html>
