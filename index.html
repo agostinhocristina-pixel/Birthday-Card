@@ -2,25 +2,41 @@
 <html lang="pt">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>For You, Amor.</title>
 
   <!-- Handwriting font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
 
   <style>
+
+    /* ==================================================
+       BASIC SETTINGS
+    ================================================== */
 
     :root {
       --cream: #f8f3ee;
       --paper: #fffdf9;
+
       --wine: #8c5d66;
       --wine-dark: #704952;
+
       --text: #403636;
       --soft-text: #806e6e;
+
       --line: #e3d4ce;
+
       --envelope: #e8d8d0;
       --envelope-dark: #d8c2ba;
     }
@@ -35,22 +51,30 @@
 
     body {
       margin: 0;
+
       background: var(--cream);
+
       color: var(--text);
+
       font-family: "Caveat", cursive;
+
       overflow-x: hidden;
     }
 
-    /* =========================================
-       OPENING
-    ========================================= */
+
+    /* ==================================================
+       OPENING SCREEN
+    ================================================== */
 
     .hero {
       min-height: 100vh;
 
       display: flex;
+
       flex-direction: column;
+
       align-items: center;
+
       justify-content: center;
 
       text-align: center;
@@ -64,68 +88,112 @@
 
     .hero.hide {
       opacity: 0;
+
       transform: scale(0.96);
+
       pointer-events: none;
     }
 
+
+    /* Small heading */
+
     .eyebrow {
       font-family: Arial, sans-serif;
+
       font-size: 10px;
+
       font-weight: 600;
+
       letter-spacing: 4px;
+
       text-transform: uppercase;
+
       color: var(--wine);
 
       opacity: 0;
-      animation: fadeUp 1.1s ease 0.2s forwards;
+
+      animation:
+        fadeUp 1.1s ease 0.2s forwards;
     }
+
+
+    /* Main title */
 
     h1 {
       margin: 17px 0 8px;
 
-      font-size: clamp(54px, 13vw, 82px);
+      font-size:
+        clamp(54px, 13vw, 82px);
+
       line-height: 0.95;
+
       font-weight: 500;
 
       opacity: 0;
-      animation: titleIn 1.3s cubic-bezier(.22,1,.36,1) 0.35s forwards;
+
+      animation:
+        titleIn 1.3s
+        cubic-bezier(.22,1,.36,1)
+        0.35s
+        forwards;
     }
+
+
+    /* Subtitle */
 
     .subtitle {
       font-size: 25px;
+
       font-style: italic;
+
       color: var(--soft-text);
 
       opacity: 0;
-      animation: fadeUp 1.1s ease 0.65s forwards;
+
+      animation:
+        fadeUp 1.1s ease 0.65s forwards;
     }
+
+
+    /* Decorative line */
 
     .line {
       width: 48px;
+
       height: 1px;
+
       background: var(--wine);
 
       margin: 28px 0;
 
       opacity: 0;
-      animation: lineIn 1s ease 0.8s forwards;
+
+      animation:
+        lineIn 1s ease 0.8s forwards;
     }
+
+
+    /* Intro */
 
     .intro {
       max-width: 400px;
 
       font-size: 22px;
+
       line-height: 1.5;
 
       color: var(--soft-text);
 
       opacity: 0;
-      animation: fadeUp 1.1s ease 0.95s forwards;
+
+      animation:
+        fadeUp 1.1s ease 0.95s forwards;
     }
 
-    /* =========================================
+
+    /* ==================================================
        OPEN BUTTON
-    ========================================= */
+    ================================================== */
 
     .open-button {
       position: relative;
@@ -141,7 +209,9 @@
       color: var(--wine);
 
       font-family: Arial, sans-serif;
+
       font-size: 10px;
+
       font-weight: 600;
 
       letter-spacing: 2px;
@@ -157,6 +227,7 @@
         box-shadow 0.35s ease;
 
       opacity: 0;
+
       animation:
         fadeUp 1.1s ease 1.15s forwards,
         softPulse 4s ease-in-out 2.5s infinite;
@@ -180,119 +251,119 @@
 
     .open-button:hover {
       background: var(--wine);
+
       color: white;
 
       transform: translateY(-2px);
 
-      box-shadow: 0 10px 25px rgba(100, 60, 65, 0.14);
+      box-shadow:
+        0 10px 25px
+        rgba(100, 60, 65, 0.14);
     }
 
     .open-button:active {
-      transform: scale(0.97);
+      transform: scale(0.96);
     }
 
     .open-button.success {
       background: var(--wine);
+
       color: white;
+
       border-color: var(--wine);
+
       transform: scale(1.04);
     }
 
-    /* =========================================
-       CLICK FEEDBACK
-    ========================================= */
+
+    /* ==================================================
+       CLICK COUNTER / MESSAGES
+    ================================================== */
 
     .click-feedback {
-      min-height: 72px;
+      min-height: 95px;
 
       margin-top: 22px;
 
       display: flex;
+
       flex-direction: column;
+
       align-items: center;
-      justify-content: center;
+
+      justify-content: flex-start;
 
       text-align: center;
 
       pointer-events: none;
     }
 
-    .click-number {
-      font-size: 34px;
-      font-weight: 600;
 
-      color: var(--wine);
+    /* Number */
+
+    .click-number {
+      min-height: 38px;
+
+      font-size: 36px;
+
+      font-weight: 600;
 
       line-height: 1;
 
+      color: var(--wine);
+
       opacity: 0;
+
+      transform: translateY(8px) scale(0.9);
+
+      transition:
+        opacity 0.35s ease,
+        transform 0.35s ease;
     }
 
+    .click-number.visible {
+      opacity: 1;
+
+      transform:
+        translateY(0)
+        scale(1);
+    }
+
+
+    /* Message */
+
     .click-message {
-      margin-top: 5px;
+      min-height: 34px;
 
-      max-width: 330px;
+      max-width: 340px;
 
-      font-size: 19px;
+      margin-top: 7px;
+
+      font-size: 20px;
+
+      line-height: 1.25;
 
       color: var(--soft-text);
 
       opacity: 0;
+
+      transform: translateY(8px);
+
+      transition:
+        opacity 0.45s ease,
+        transform 0.45s ease;
     }
 
-    .click-feedback.show .click-number {
-      animation: feedbackNumber 0.75s ease forwards;
+    .click-message.visible {
+      opacity: 1;
+
+      transform: translateY(0);
     }
 
-    .click-feedback.show .click-message {
-      animation: feedbackMessage 0.9s ease 0.05s forwards;
-    }
 
-    @keyframes feedbackNumber {
-
-      0% {
-        opacity: 0;
-        transform: translateY(15px) scale(0.8);
-      }
-
-      30% {
-        opacity: 1;
-        transform: translateY(0) scale(1.15);
-      }
-
-      100% {
-        opacity: 0;
-        transform: translateY(-12px) scale(1);
-      }
-
-    }
-
-    @keyframes feedbackMessage {
-
-      0% {
-        opacity: 0;
-        transform: translateY(8px);
-      }
-
-      25% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-      75% {
-        opacity: 1;
-      }
-
-      100% {
-        opacity: 0;
-        transform: translateY(-5px);
-      }
-
-    }
-
-    /* =========================================
-       ENVELOPE / TRANSITION
-    ========================================= */
+    /* ==================================================
+       ENVELOPE STAGE
+    ================================================== */
 
     .envelope-stage {
       position: fixed;
@@ -304,6 +375,7 @@
       display: flex;
 
       align-items: center;
+
       justify-content: center;
 
       background: var(--cream);
@@ -319,29 +391,42 @@
 
     .envelope-stage.active {
       opacity: 1;
+
       visibility: visible;
     }
+
+
+    /* Envelope */
 
     .envelope {
       position: relative;
 
       width: min(82vw, 390px);
+
       aspect-ratio: 1.45;
 
       background: var(--envelope);
 
       box-shadow:
-        0 25px 70px rgba(70, 45, 45, 0.16);
+        0 25px 70px
+        rgba(70, 45, 45, 0.16);
 
-      transform: translateY(40px) scale(0.94);
+      transform:
+        translateY(40px)
+        scale(0.94);
 
       transition:
-        transform 1s cubic-bezier(.22,1,.36,1);
+        transform
+        1s
+        cubic-bezier(.22,1,.36,1);
     }
 
     .envelope-stage.active .envelope {
-      transform: translateY(0) scale(1);
+      transform:
+        translateY(0)
+        scale(1);
     }
+
 
     /* Letter inside envelope */
 
@@ -349,6 +434,7 @@
       position: absolute;
 
       left: 8%;
+
       right: 8%;
 
       bottom: 3%;
@@ -359,10 +445,14 @@
 
       border: 1px solid var(--line);
 
-      box-shadow: 0 5px 15px rgba(50, 35, 35, 0.08);
+      box-shadow:
+        0 5px 15px
+        rgba(50, 35, 35, 0.08);
 
       display: flex;
+
       align-items: center;
+
       justify-content: center;
 
       color: var(--wine);
@@ -372,12 +462,18 @@
       z-index: 2;
 
       transition:
-        transform 1.1s cubic-bezier(.22,1,.36,1) 0.45s;
+        transform
+        1.1s
+        cubic-bezier(.22,1,.36,1)
+        0.45s;
     }
 
-    .envelope-stage.active .envelope-letter {
-      transform: translateY(-105%);
+    .envelope-stage.active
+    .envelope-letter {
+      transform:
+        translateY(-105%);
     }
+
 
     /* Envelope front */
 
@@ -391,29 +487,34 @@
       overflow: hidden;
     }
 
+
     /* Bottom flap */
 
     .bottom-flap {
       position: absolute;
 
       left: 0;
+
       right: 0;
+
       bottom: 0;
 
       height: 70%;
 
       background: var(--envelope-dark);
 
-      clip-path: polygon(
-        0 0,
-        50% 72%,
-        100% 0,
-        100% 100%,
-        0 100%
-      );
+      clip-path:
+        polygon(
+          0 0,
+          50% 72%,
+          100% 0,
+          100% 100%,
+          0 100%
+        );
 
       z-index: 4;
     }
+
 
     /* Top flap */
 
@@ -421,30 +522,38 @@
       position: absolute;
 
       left: 0;
+
       top: 0;
 
       width: 100%;
+
       height: 65%;
 
       background: #eadbd4;
 
-      clip-path: polygon(
-        0 0,
-        100% 0,
-        50% 100%
-      );
+      clip-path:
+        polygon(
+          0 0,
+          100% 0,
+          50% 100%
+        );
 
       transform-origin: top center;
 
       z-index: 6;
 
       transition:
-        transform 1s cubic-bezier(.22,1,.36,1) 0.2s;
+        transform
+        1s
+        cubic-bezier(.22,1,.36,1)
+        0.2s;
     }
 
-    .envelope-stage.active .top-flap {
+    .envelope-stage.active
+    .top-flap {
       transform: rotateX(180deg);
     }
+
 
     /* Seal */
 
@@ -452,11 +561,14 @@
       position: absolute;
 
       left: 50%;
+
       top: 48%;
 
-      transform: translate(-50%, -50%);
+      transform:
+        translate(-50%, -50%);
 
       width: 42px;
+
       height: 42px;
 
       border-radius: 50%;
@@ -466,7 +578,9 @@
       color: white;
 
       display: flex;
+
       align-items: center;
+
       justify-content: center;
 
       font-family: Georgia, serif;
@@ -476,7 +590,8 @@
       z-index: 10;
 
       box-shadow:
-        0 5px 15px rgba(90, 50, 55, 0.15);
+        0 5px 15px
+        rgba(90, 50, 55, 0.15);
 
       transition:
         opacity 0.35s ease,
@@ -491,16 +606,20 @@
         scale(0.7);
     }
 
-    /* =========================================
+
+    /* ==================================================
        LETTER
-    ========================================= */
+    ================================================== */
 
     .letter-section {
       max-width: 760px;
 
       margin: auto;
 
-      padding: 80px 20px 100px;
+      padding:
+        80px
+        20px
+        100px;
 
       opacity: 0;
 
@@ -508,25 +627,33 @@
 
       transition:
         opacity 1.2s ease,
-        transform 1.2s cubic-bezier(.22,1,.36,1);
+        transform 1.2s
+        cubic-bezier(.22,1,.36,1);
     }
 
     .letter-section.visible {
       opacity: 1;
+
       transform: translateY(0);
     }
+
+
+    /* Letter paper */
 
     .letter {
       position: relative;
 
-      padding: 48px 40px;
+      padding:
+        48px
+        40px;
 
       background: var(--paper);
 
       border: 1px solid var(--line);
 
       box-shadow:
-        0 20px 55px rgba(70, 45, 45, 0.07);
+        0 20px 55px
+        rgba(70, 45, 45, 0.07);
 
       font-size: 24px;
 
@@ -534,12 +661,16 @@
 
       background-image:
         radial-gradient(
-          rgba(120, 90, 80, 0.04) 0.7px,
+          rgba(120, 90, 80, 0.04)
+          0.7px,
           transparent 0.7px
         );
 
       background-size: 7px 7px;
     }
+
+
+    /* Little heart at the top */
 
     .letter::before {
       content: "♥️";
@@ -559,8 +690,14 @@
       opacity: 0.6;
     }
 
+
+    /* Paragraph animation */
+
     .letter p {
-      margin: 0 0 24px;
+      margin:
+        0
+        0
+        24px;
 
       opacity: 0;
 
@@ -568,61 +705,84 @@
 
       transition:
         opacity 0.8s ease,
-        transform 0.8s cubic-bezier(.22,1,.36,1);
+        transform 0.8s
+        cubic-bezier(.22,1,.36,1);
     }
 
-    .letter-section.visible .letter p {
+    .letter-section.visible
+    .letter p {
       opacity: 1;
+
       transform: translateY(0);
     }
 
-    .letter-section.visible .letter p:nth-child(1) {
+
+    /* Staggered text */
+
+    .letter-section.visible
+    .letter p:nth-child(1) {
       transition-delay: 0.25s;
     }
 
-    .letter-section.visible .letter p:nth-child(2) {
+    .letter-section.visible
+    .letter p:nth-child(2) {
       transition-delay: 0.45s;
     }
 
-    .letter-section.visible .letter p:nth-child(3) {
+    .letter-section.visible
+    .letter p:nth-child(3) {
       transition-delay: 0.65s;
     }
 
-    .letter-section.visible .letter p:nth-child(4) {
+    .letter-section.visible
+    .letter p:nth-child(4) {
       transition-delay: 0.85s;
     }
 
-    .letter-section.visible .letter p:nth-child(5) {
+    .letter-section.visible
+    .letter p:nth-child(5) {
       transition-delay: 1.05s;
     }
 
-    .letter-section.visible .letter p:nth-child(6) {
+    .letter-section.visible
+    .letter p:nth-child(6) {
       transition-delay: 1.25s;
     }
 
-    .letter-section.visible .letter p:nth-child(7) {
+    .letter-section.visible
+    .letter p:nth-child(7) {
       transition-delay: 1.45s;
     }
 
-    .letter-section.visible .letter p:nth-child(8) {
+    .letter-section.visible
+    .letter p:nth-child(8) {
       transition-delay: 1.65s;
     }
 
-    .letter-section.visible .letter p:nth-child(9) {
+    .letter-section.visible
+    .letter p:nth-child(9) {
       transition-delay: 1.85s;
     }
 
-    .letter-section.visible .letter p:nth-child(10) {
+    .letter-section.visible
+    .letter p:nth-child(10) {
       transition-delay: 2.05s;
     }
+
+
+    /* Special lines */
 
     .special-line {
       text-align: center;
 
       font-size: 27px;
 
-      margin: 40px 0 !important;
+      margin:
+        40px 0 !important;
     }
+
+
+    /* Signature */
 
     .signature {
       text-align: right;
@@ -638,90 +798,100 @@
 
     .signature strong {
       display: inline-block;
-
-      opacity: 0;
-
-      transform: translateY(10px);
-
-      transition:
-        opacity 1.2s ease,
-        transform 1.2s cubic-bezier(.22,1,.36,1);
-
-      transition-delay: 2.7s;
     }
 
-    .letter-section.visible .signature strong {
-      opacity: 1;
-      transform: translateY(0);
-    }
 
-    /* =========================================
+    /* ==================================================
        GENERAL ANIMATIONS
-    ========================================= */
+    ================================================== */
 
     @keyframes fadeUp {
 
       from {
         opacity: 0;
-        transform: translateY(14px);
+
+        transform:
+          translateY(14px);
       }
 
       to {
         opacity: 1;
-        transform: translateY(0);
+
+        transform:
+          translateY(0);
       }
 
     }
+
 
     @keyframes titleIn {
 
       from {
         opacity: 0;
-        transform: translateY(25px) scale(0.97);
+
+        transform:
+          translateY(25px)
+          scale(0.97);
       }
 
       to {
         opacity: 1;
-        transform: translateY(0) scale(1);
+
+        transform:
+          translateY(0)
+          scale(1);
       }
 
     }
+
 
     @keyframes lineIn {
 
       from {
         opacity: 0;
-        transform: scaleX(0);
+
+        transform:
+          scaleX(0);
       }
 
       to {
         opacity: 1;
-        transform: scaleX(1);
+
+        transform:
+          scaleX(1);
       }
 
     }
 
+
     @keyframes softPulse {
 
-      0%, 100% {
-        box-shadow: 0 0 0 rgba(140, 93, 102, 0);
+      0%,
+      100% {
+        box-shadow:
+          0 0 0
+          rgba(140, 93, 102, 0);
       }
 
       50% {
         box-shadow:
-          0 5px 20px rgba(140, 93, 102, 0.10);
+          0 5px 20px
+          rgba(140, 93, 102, 0.10);
       }
 
     }
 
-    /* =========================================
+
+    /* ==================================================
        MOBILE
-    ========================================= */
+    ================================================== */
 
     @media (max-width: 600px) {
 
       .hero {
-        padding: 30px 18px;
+        padding:
+          30px
+          18px;
       }
 
       h1 {
@@ -741,11 +911,16 @@
       }
 
       .letter-section {
-        padding: 55px 15px 70px;
+        padding:
+          55px
+          15px
+          70px;
       }
 
       .letter {
-        padding: 35px 23px;
+        padding:
+          35px
+          23px;
 
         font-size: 22px;
 
@@ -760,9 +935,18 @@
         font-size: 23px;
       }
 
+      .click-message {
+        max-width: 300px;
+
+        font-size: 19px;
+      }
+
     }
 
-    /* Accessibility */
+
+    /* ==================================================
+       REDUCED MOTION
+    ================================================== */
 
     @media (prefers-reduced-motion: reduce) {
 
@@ -770,6 +954,7 @@
       *::before,
       *::after {
         animation-duration: 0.01ms !important;
+
         transition-duration: 0.01ms !important;
       }
 
@@ -778,33 +963,46 @@
   </style>
 </head>
 
+
 <body>
 
-  <!-- =========================================
-       OPENING
-  ========================================= -->
 
-  <main class="hero" id="hero">
+  <!-- ==================================================
+       OPENING
+  ================================================== -->
+
+  <main
+    class="hero"
+    id="hero"
+  >
 
     <div class="eyebrow">
       A little something for you
     </div>
 
+
     <h1>
       For You, Amor.
     </h1>
+
 
     <div class="subtitle">
       Something I wanted you to have.
     </div>
 
+
     <div class="line"></div>
+
 
     <div class="intro">
       Some things are easier to write than to say.
     </div>
 
-    <button class="open-button" id="openButton">
+
+    <button
+      class="open-button"
+      id="openButton"
+    >
 
       OPEN
 
@@ -814,28 +1012,53 @@
 
     </button>
 
-    <div class="click-feedback" id="clickFeedback">
 
-      <div class="click-number" id="clickNumber"></div>
+    <!--
+      The number and message will appear here.
+    -->
 
-      <div class="click-message" id="clickMessage"></div>
+    <div
+      class="click-feedback"
+      id="clickFeedback"
+    >
+
+      <div
+        class="click-number"
+        id="clickNumber"
+      ></div>
+
+
+      <div
+        class="click-message"
+        id="clickMessage"
+      ></div>
 
     </div>
 
   </main>
 
 
-  <!-- =========================================
-       ENVELOPE
-  ========================================= -->
 
-  <div class="envelope-stage" id="envelopeStage">
+  <!-- ==================================================
+       ENVELOPE
+  ================================================== -->
+
+  <div
+    class="envelope-stage"
+    id="envelopeStage"
+  >
 
     <div class="envelope">
+
+
+      <!-- Letter inside envelope -->
 
       <div class="envelope-letter">
         For you.
       </div>
+
+
+      <!-- Envelope front -->
 
       <div class="envelope-front">
 
@@ -844,6 +1067,9 @@
         <div class="top-flap"></div>
 
       </div>
+
+
+      <!-- Wax seal -->
 
       <div class="seal">
         ♥️
@@ -854,47 +1080,62 @@
   </div>
 
 
-  <!-- =========================================
-       LETTER
-  ========================================= -->
 
-  <section class="letter-section" id="letterSection">
+  <!-- ==================================================
+       LETTER
+  ================================================== -->
+
+  <section
+    class="letter-section"
+    id="letterSection"
+  >
 
     <article class="letter">
+
 
       <p>
         Trust me, fiquei a semana toda a pensar no que escrever-te neste dia tão especial, e ainda me encontro completamente incerto se todas as palavras deste mundo seriam capazes de descrever a pessoa magnífica que tu és, o quão especial tu és para mim, meu amor.
       </p>
 
+
       <p class="special-line">
+
         <strong>
           You’ve got me.
         </strong>
+
       </p>
+
 
       <p>
         Quero, através deste pequeno bilhete, desejar-te um feliz aniversário, amor.
       </p>
 
+
       <p>
         I hope you have the best day ever — you deserve it. Não apenas hoje, mas para todo o sempre. Tu mereces o melhor que a vida pode oferecer a alguém, e espero sinceramente que a vida te dê muito, muito mais do que aquilo que alguma vez poderás pedir.
       </p>
+
 
       <p>
         Quero que saibas que te admiro bastante. Admiro a tua força, a tua personalidade, a tua determinação e a maneira como és simplesmente tu. Tu és uma em um milhão. <strong>You’re unique, and you have all my love, support and cheering.</strong>
       </p>
 
+
       <p>
         Mal posso esperar para te ver novamente, meu amor.
       </p>
+
 
       <p>
         Espero sinceramente que estes pequenos mimos te agradem, façam o teu dia um pouco mais especial e sejam um pequeno reflexo de que, não importa o quão distantes possamos estar um do outro agora, eu jamais deixaria passar o teu aniversário em branco. Te amo demais para permitir que tal “Massinguita” acontecesse. 😅
       </p>
 
+
       <p>
         Espero que, quando olhares para estas pequenas coisas hoje, te lembres apenas de uma coisa:
       </p>
+
 
       <p class="special-line">
 
@@ -904,13 +1145,17 @@
 
       </p>
 
+
       <p>
         Happy birthday, minha pessoa favorita.
       </p>
 
+
       <p class="signature">
 
-        Com Amor,<br>
+        Com Amor,
+
+        <br>
 
         <strong>
           Your Christian Grey! 🤭
@@ -918,16 +1163,23 @@
 
       </p>
 
+
     </article>
 
   </section>
 
 
-  <!-- =========================================
-       SCRIPT
-  ========================================= -->
+
+  <!-- ==================================================
+       JAVASCRIPT
+  ================================================== -->
 
   <script>
+
+
+    /* --------------------------------------------------
+       ELEMENTS
+    -------------------------------------------------- */
 
     const openButton =
       document.getElementById("openButton");
@@ -941,9 +1193,6 @@
     const letterSection =
       document.getElementById("letterSection");
 
-    const clickFeedback =
-      document.getElementById("clickFeedback");
-
     const clickNumber =
       document.getElementById("clickNumber");
 
@@ -951,12 +1200,16 @@
       document.getElementById("clickMessage");
 
 
+    /* --------------------------------------------------
+       CLICK COUNTER
+    -------------------------------------------------- */
+
     let clickCount = 0;
 
 
-    /*
-      The 26 messages.
-    */
+    /* --------------------------------------------------
+       26 MESSAGES
+    -------------------------------------------------- */
 
     const messages = [
 
@@ -1015,144 +1268,221 @@
     ];
 
 
-    /*
-      Every click.
-    */
+    /* --------------------------------------------------
+       SHOW MESSAGE
+    -------------------------------------------------- */
 
-    openButton.addEventListener("click", function () {
+    function showClickMessage(
+      number,
+      message
+    ) {
 
-      clickCount++;
+      /*
+        First remove the old
+        visible state.
+      */
+
+      clickNumber.classList.remove("visible");
+
+      clickMessage.classList.remove("visible");
 
 
       /*
-        If this is not the 26th click,
-        show the next message.
+        Force the browser to
+        restart the animation.
       */
 
-      if (clickCount < 26) {
+      void clickNumber.offsetWidth;
 
-        clickNumber.textContent =
-          clickCount;
-
-        clickMessage.textContent =
-          messages[clickCount - 1];
+      void clickMessage.offsetWidth;
 
 
-        /*
-          Restart the animation.
-        */
+      /*
+        Set new content.
+      */
 
-        clickFeedback.classList.remove("show");
+      clickNumber.textContent =
+        number;
 
-        void clickFeedback.offsetWidth;
+      clickMessage.textContent =
+        message;
 
-        clickFeedback.classList.add("show");
+
+      /*
+        Show them.
+      */
+
+      clickNumber.classList.add("visible");
+
+      clickMessage.classList.add("visible");
+
+    }
 
 
-        /*
-          Small button movement.
-        */
+    /* --------------------------------------------------
+       BUTTON CLICK
+    -------------------------------------------------- */
 
-        openButton.animate(
+    openButton.addEventListener(
+      "click",
+      function () {
 
-          [
+        clickCount++;
+
+
+        /* ----------------------------------------------
+           CLICKS 1–25
+        ---------------------------------------------- */
+
+        if (clickCount < 26) {
+
+          showClickMessage(
+            clickCount,
+            messages[clickCount - 1]
+          );
+
+
+          /*
+            Small button bounce.
+          */
+
+          openButton.animate(
+
+            [
+              {
+                transform:
+                  "scale(1)"
+              },
+
+              {
+                transform:
+                  "scale(0.94)"
+              },
+
+              {
+                transform:
+                  "scale(1.04)"
+              },
+
+              {
+                transform:
+                  "scale(1)"
+              }
+            ],
+
             {
-              transform: "scale(1)"
-            },
+              duration: 380,
 
-            {
-              transform: "scale(0.94)"
-            },
-
-            {
-              transform: "scale(1.04)"
-            },
-
-            {
-              transform: "scale(1)"
+              easing:
+                "ease-out"
             }
-          ],
 
-          {
-            duration: 380,
-            easing: "ease-out"
-          }
+          );
 
+
+          return;
+
+        }
+
+
+        /* ----------------------------------------------
+           CLICK 26
+        ---------------------------------------------- */
+
+        showClickMessage(
+          26,
+          "Okay… you earned it. ❤️"
         );
 
 
-        return;
+        /*
+          Make button look finished.
+        */
+
+        openButton.classList.add(
+          "success"
+        );
+
+        openButton.disabled = true;
+
+
+        /*
+          Wait so she can read
+          the final message.
+        */
+
+        setTimeout(
+          function () {
+
+            /*
+              Fade away opening.
+            */
+
+            hero.classList.add(
+              "hide"
+            );
+
+
+            /*
+              Show envelope.
+            */
+
+            envelopeStage.classList.add(
+              "active"
+            );
+
+          },
+
+          1200
+        );
+
+
+        /*
+          Give the envelope
+          enough time to open.
+        */
+
+        setTimeout(
+          function () {
+
+            envelopeStage.classList.remove(
+              "active"
+            );
+
+          },
+
+          4300
+        );
+
+
+        /*
+          Reveal letter.
+        */
+
+        setTimeout(
+          function () {
+
+            letterSection.classList.add(
+              "visible"
+            );
+
+
+            /*
+              Scroll to letter.
+            */
+
+            letterSection.scrollIntoView({
+              behavior: "smooth",
+              block: "start"
+            });
+
+          },
+
+          4700
+        );
 
       }
-
-
-      /*
-        =====================================
-        26TH CLICK
-        =====================================
-      */
-
-      clickNumber.textContent = "26";
-
-      clickMessage.textContent =
-        "Okay… you earned it. ❤️";
-
-      clickFeedback.classList.remove("show");
-
-      void clickFeedback.offsetWidth;
-
-      clickFeedback.classList.add("show");
-
-
-      openButton.classList.add("success");
-
-      openButton.disabled = true;
-
-
-      /*
-        Give her a moment to see
-        the final message.
-      */
-
-      setTimeout(function () {
-
-        hero.classList.add("hide");
-
-        envelopeStage.classList.add("active");
-
-      }, 1000);
-
-
-      /*
-        Open the envelope.
-      */
-
-      setTimeout(function () {
-
-        envelopeStage.classList.remove("active");
-
-      }, 3500);
-
-
-      /*
-        Reveal the letter.
-      */
-
-      setTimeout(function () {
-
-        letterSection.classList.add("visible");
-
-        letterSection.scrollIntoView({
-
-          behavior: "smooth",
-
-          block: "start"
-
-        });
-
-      }, 3900);
-
-    });
+    );
 
   </script>
 
