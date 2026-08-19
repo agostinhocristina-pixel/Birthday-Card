@@ -6,10 +6,16 @@
 
   <title>For You, Amor.</title>
 
+  <!-- Handwriting font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
+
     :root {
       --cream: #faf6f1;
-      --paper: #fffdf9;
+      --paper: #fffdf8;
       --wine: #8c5d66;
       --text: #403636;
       --soft-text: #806e6e;
@@ -28,8 +34,9 @@
       margin: 0;
       background: var(--cream);
       color: var(--text);
-      font-family: Georgia, "Times New Roman", serif;
-      line-height: 1.8;
+      font-family: "Caveat", cursive;
+      font-size: 21px;
+      line-height: 1.65;
     }
 
     .container {
@@ -38,16 +45,22 @@
       padding: 0 20px 70px;
     }
 
-    /* OPENING */
+    /* =========================
+       OPENING
+    ========================= */
 
     .hero {
       min-height: 100vh;
+
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+
       text-align: center;
+
       padding: 50px 10px;
+
       animation: fadeUp 1.2s ease;
     }
 
@@ -61,14 +74,15 @@
     }
 
     h1 {
-      font-size: clamp(42px, 9vw, 64px);
-      line-height: 1.05;
-      font-weight: 400;
+      font-family: "Caveat", cursive;
+      font-size: clamp(48px, 11vw, 76px);
+      line-height: 1;
+      font-weight: 500;
       margin: 18px 0 12px;
     }
 
     .subtitle {
-      font-size: 18px;
+      font-size: 24px;
       font-style: italic;
       color: var(--soft-text);
     }
@@ -83,20 +97,30 @@
     .hero p {
       max-width: 500px;
       color: var(--soft-text);
+      font-size: 22px;
     }
 
     .open-button {
       display: inline-block;
+
       margin-top: 26px;
-      padding: 12px 30px;
+
+      padding: 10px 30px;
+
       border: 1px solid var(--wine);
+
       color: var(--wine);
+
       text-decoration: none;
+
       font-family: Arial, sans-serif;
       font-size: 10px;
       font-weight: bold;
+
       letter-spacing: 2px;
+
       text-transform: uppercase;
+
       transition: 0.3s;
     }
 
@@ -105,7 +129,9 @@
       color: white;
     }
 
-    /* SECTIONS */
+    /* =========================
+       LETTER SECTION
+    ========================= */
 
     section {
       padding: 75px 0;
@@ -113,126 +139,108 @@
 
     .section-label {
       text-align: center;
+
       font-family: Arial, sans-serif;
+
       font-size: 10px;
       font-weight: 600;
+
       letter-spacing: 3px;
+
       text-transform: uppercase;
+
       color: var(--wine);
-      margin-bottom: 12px;
+
+      margin-bottom: 25px;
     }
 
-    h2 {
-      text-align: center;
-      font-size: 32px;
-      line-height: 1.25;
-      font-weight: 400;
-      margin: 0 0 35px;
-    }
-
-    /* LETTER */
+    /* =========================
+       HANDWRITTEN LETTER
+    ========================= */
 
     .letter {
-      background: var(--paper);
+      position: relative;
+
+      background-color: var(--paper);
+
       border: 1px solid var(--line);
-      padding: 44px 36px;
-      box-shadow: 0 15px 40px rgba(70, 45, 45, 0.06);
+
+      padding: 48px 40px;
+
+      box-shadow:
+        0 18px 45px rgba(70, 45, 45, 0.07),
+        0 2px 6px rgba(70, 45, 45, 0.04);
+
+      font-family: "Caveat", cursive;
+
+      font-size: 24px;
+
+      line-height: 1.65;
+
+      /* Subtle paper texture */
+      background-image:
+        radial-gradient(
+          rgba(120, 90, 80, 0.045) 0.7px,
+          transparent 0.7px
+        );
+
+      background-size: 7px 7px;
+    }
+
+    /* Small decorative detail */
+
+    .letter::before {
+      content: "♥️";
+
+      display: block;
+
+      text-align: center;
+
+      color: var(--wine);
+
+      font-family: Georgia, serif;
+
+      font-size: 15px;
+
+      margin-bottom: 30px;
+
+      opacity: 0.65;
     }
 
     .letter p {
-      margin: 0 0 20px;
+      margin: 0 0 23px;
     }
 
     .special-line {
       text-align: center;
-      font-size: 20px;
-      margin: 32px 0;
+
+      font-size: 27px;
+
+      margin: 38px 0;
+    }
+
+    .special-line strong {
+      font-weight: 600;
     }
 
     .signature {
       text-align: right;
-      font-size: 19px;
-      font-style: italic;
-      margin-top: 35px;
-    }
 
-    /* LITTLE THINGS */
-
-    .little-things {
-      min-height: 65vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-    }
-
-    .little-things h2 {
-      font-size: 38px;
-      margin-bottom: 15px;
-    }
-
-    .little-things > p {
-      max-width: 540px;
-      margin: 0 auto;
-      color: var(--soft-text);
-    }
-
-    .three-things {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 13px;
-      margin-top: 40px;
-    }
-
-    .thing {
-      min-height: 145px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 22px;
-      background: rgba(255, 253, 249, 0.65);
-      border: 1px solid var(--line);
-      font-style: italic;
-      font-size: 17px;
-    }
-
-    /* FINAL */
-
-    .final {
-      min-height: 80vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      text-align: center;
-      padding: 90px 15px;
-    }
-
-    .final h2 {
-      font-size: 40px;
-      margin-bottom: 25px;
-    }
-
-    .final-message {
-      font-size: 21px;
-      max-width: 570px;
-      margin: 0 auto 25px;
-    }
-
-    .love-line {
       font-size: 25px;
-      margin: 35px 0 10px;
+
+      font-style: italic;
+
+      margin-top: 42px;
+
+      margin-bottom: 0 !important;
     }
 
-    .ending {
-      margin-top: 55px;
-      font-family: Arial, sans-serif;
-      font-size: 10px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: var(--soft-text);
-    }
+    /* =========================
+       ANIMATION
+    ========================= */
 
     @keyframes fadeUp {
+
       from {
         opacity: 0;
         transform: translateY(18px);
@@ -242,12 +250,17 @@
         opacity: 1;
         transform: translateY(0);
       }
+
     }
+
+    /* =========================
+       MOBILE
+    ========================= */
 
     @media (max-width: 600px) {
 
       .container {
-        padding: 0 15px 50px;
+        padding: 0 15px 45px;
       }
 
       section {
@@ -255,24 +268,25 @@
       }
 
       .letter {
-        padding: 30px 21px;
+        padding: 34px 23px;
+
+        font-size: 22px;
+
+        line-height: 1.7;
       }
 
-      .three-things {
-        grid-template-columns: 1fr;
+      .letter::before {
+        margin-bottom: 24px;
       }
 
-      .thing {
-        min-height: 95px;
+      .special-line {
+        font-size: 25px;
       }
 
-      .little-things h2 {
-        font-size: 32px;
+      .signature {
+        font-size: 23px;
       }
 
-      .final h2 {
-        font-size: 34px;
-      }
     }
 
   </style>
@@ -282,7 +296,9 @@
 
 <div class="container">
 
-  <!-- OPENING -->
+  <!-- =========================
+       OPENING
+  ========================= -->
 
   <section class="hero">
 
@@ -311,7 +327,9 @@
   </section>
 
 
-  <!-- LETTER -->
+  <!-- =========================
+       LETTER
+  ========================= -->
 
   <section id="letter">
 
@@ -326,7 +344,9 @@
       </p>
 
       <p class="special-line">
-        <strong>You’ve got me.</strong>
+        <strong>
+          You’ve got me.
+        </strong>
       </p>
 
       <p>
@@ -354,9 +374,11 @@
       </p>
 
       <p class="special-line">
+
         <strong>
           Eu te amo, eu te ouço — até nos pequenos detalhes — e tu és digna de todo o meu cuidado, your spoiled little creature! 😅
         </strong>
+
       </p>
 
       <p>
@@ -364,101 +386,16 @@
       </p>
 
       <p class="signature">
+
         Com Amor,<br>
-        <strong>Your Christian Grey! 🤭</strong>
+
+        <strong>
+          Your Christian Grey! 🤭
+        </strong>
+
       </p>
 
     </article>
-
-  </section>
-
-
-  <!-- LITTLE THINGS -->
-
-  <section class="little-things">
-
-    <div class="section-label">
-      And yes…
-    </div>
-
-    <h2>
-      I remembered the little things.
-    </h2>
-
-    <p>
-      Maybe that's one of the things about loving someone:
-      the little things stop being little.
-    </p>
-
-    <div class="three-things">
-
-      <div class="thing">
-        You needed it.
-      </div>
-
-      <div class="thing">
-        You loved it.
-      </div>
-
-      <div class="thing">
-        I wanted you to have it.
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- FINAL -->
-
-  <section class="final">
-
-    <div class="section-label">
-      One last thing
-    </div>
-
-    <h2>
-      Even from far away…
-    </h2>
-
-    <p class="final-message">
-      I hope you felt a little closer to me today.
-    </p>
-
-    <p>
-      Because distance is only distance.
-    </p>
-
-    <p>
-      It doesn't change how much I think about you.<br>
-      It doesn't change how much I care about you.
-    </p>
-
-    <div class="divider"></div>
-
-    <p class="love-line">
-      <strong>
-        Mesmo longe, eu estou presente.
-      </strong>
-    </p>
-
-    <p>
-      And I can't wait to see you again.
-    </p>
-
-    <div style="margin-top: 50px;">
-
-      <p>
-        <strong>
-          Happy Birthday, minha pessoa favorita.
-        </strong>
-      </p>
-
-    </div>
-
-    <div class="ending">
-      With all my love, always.
-    </div>
 
   </section>
 
