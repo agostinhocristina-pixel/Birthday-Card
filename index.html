@@ -1105,60 +1105,60 @@ let clicks = 0;
 
 
 /* =====================================================
-   MESSAGES
+   YOUR 25 PERSONAL MESSAGES
 ===================================================== */
 
 const messages = [
 
-  "Nope. 😌 Tenta outra vez.",
+  "Whoops, deu zebra.😏",
 
-  "Whoops… não foi dessa vez.",
+  "Try again, Tininha!😂",
 
-  "Ainda não, amor.",
+  "Mais um pouco amor, chegas lá.🤭",
 
-  "Tens mesmo de continuar. 😂",
+  "Mas enquanto isso, deixa-me te dizer:",
 
-  "Eu disse OPEN… não disse one click. 🤭",
+  "EU TE AMO, MAIS DO QUE PALAVRAS PODEM EXPRESSAR!💖",
 
-  "Patience, birthday girl.",
+  "TU ÉS SIMPLESMENTE DEMAIS.❤️",
 
-  "Estás a desistir? 👀",
+  "EMBORA ME STRESS MUITO AS VEZES.😹😏",
 
-  "Nem pensar. Outra vez.",
+  "YET, YOU’RE MY BEST FRIEND!🙈",
 
-  "Quase… mentira. 😂",
+  "MY FAVORITE PERSON TO BE WITH.☺️",
 
-  "Já estás a perceber o jogo?",
+  "SOU MUITO FÃ DO TEU SORRISO, Pirooooo!😏",
 
-  "Metade do caminho. Maybe.",
+  "Enfim, estás quase lá, amor.😹😹",
 
-  "Não te canses ainda.",
+  "Keep Pushing 💪🏽",
 
-  "13… unlucky? Not today.",
+  "YOU’RE SUCH AN AMAZING MOTHER!❤️💖",
 
-  "Continua. Eu sei que consegues.",
+  "THANK YOU FOR BEING YOU.😽",
 
-  "Ainda faltam uns quantos. 🤭",
+  "YOU’RE UNIQUE.❤️",
 
-  "You’re really committed to this, huh?",
+  "“Ah VÂNIA, DJOOOO”😹😹😹",
 
-  "Não foi dessa vez, Pitoka. 😅",
+  "Anyways, Almost There…",
 
-  "Calma. A carta não vai fugir.",
+  "There’s actually a reason I made you click this many times… 👀",
 
-  "Estás quase… talvez.",
+  "Because some things are worth waiting for. ❤️",
 
-  "20 cliques e ainda nada. 😂",
+  "And you, my love, are definitely worth it. 🥹",
 
-  "You’ve got this.",
+  "YOU ARE THE BEST I EVER HAD. 💖❤️",
 
-  "Só mais quatro.",
+  "ENFIM, KEEP GOING.😽",
 
-  "Agora já não podes desistir.",
+  "YOU’RE ALMOST THERE, TININHA. 👀😂",
 
-  "Two more…",
+  "I KNOW YOU’RE TIRED, BUT YOU CAN’T GIVE UP NOW. 😏",
 
-  "One more. 🤭"
+  "ONE. MORE. CLICK. ❤️"
 
 ];
 
@@ -1167,14 +1167,26 @@ const messages = [
    SHOW MESSAGE
 ===================================================== */
 
-function showMessage(number, text) {
+function showMessage(
+  number,
+  text
+) {
 
-  clickNumber.classList.remove("show");
+  clickNumber.classList.remove(
+    "show"
+  );
 
-  clickMessage.classList.remove("show");
+  clickMessage.classList.remove(
+    "show"
+  );
 
+
+  /*
+    Restart animation.
+  */
 
   void clickNumber.offsetWidth;
+
   void clickMessage.offsetWidth;
 
 
@@ -1186,9 +1198,13 @@ function showMessage(number, text) {
     text;
 
 
-  clickNumber.classList.add("show");
+  clickNumber.classList.add(
+    "show"
+  );
 
-  clickMessage.classList.add("show");
+  clickMessage.classList.add(
+    "show"
+  );
 
 }
 
@@ -1216,6 +1232,10 @@ openButton.addEventListener(
       );
 
 
+      /*
+        Small button bounce.
+      */
+
       openButton.animate(
 
         [
@@ -1234,6 +1254,7 @@ openButton.addEventListener(
           {
             transform: "scale(1)"
           }
+
         ],
 
         {
@@ -1261,17 +1282,21 @@ openButton.addEventListener(
       "Okay… you earned it. ❤️";
 
 
-    clickNumber.classList.add("show");
+    clickNumber.classList.add(
+      "show"
+    );
 
-    clickMessage.classList.add("show");
+    clickMessage.classList.add(
+      "show"
+    );
 
 
     openButton.disabled = true;
 
 
     /*
-      Give her a brief moment
-      to see 26.
+      Give her a moment to see
+      number 26.
     */
 
     setTimeout(
@@ -1290,14 +1315,22 @@ openButton.addEventListener(
 function launchBirthday() {
 
 
-  /* Hide opening */
+  /*
+    Hide opening.
+  */
 
-  hero.classList.add("hidden");
+  hero.classList.add(
+    "hidden"
+  );
 
 
-  /* Show celebration */
+  /*
+    Show celebration.
+  */
 
-  celebration.classList.add("active");
+  celebration.classList.add(
+    "active"
+  );
 
 
   /* ================================================
@@ -1311,7 +1344,9 @@ function launchBirthday() {
   ) {
 
     const party =
-      document.createElement("div");
+      document.createElement(
+        "div"
+      );
 
 
     party.className =
@@ -1332,11 +1367,13 @@ function launchBirthday() {
 
 
     const x =
-      Math.cos(angle) * distance;
+      Math.cos(angle) *
+      distance;
 
 
     const y =
-      Math.sin(angle) * distance;
+      Math.sin(angle) *
+      distance;
 
 
     party.style.setProperty(
@@ -1353,12 +1390,14 @@ function launchBirthday() {
 
     party.style.setProperty(
       "--rotation",
-      (Math.random() * 720 - 360) + "deg"
+      (Math.random() * 720 - 360) +
+      "deg"
     );
 
 
     party.style.animationDelay =
-      (Math.random() * .2) + "s";
+      (Math.random() * .2) +
+      "s";
 
 
     celebration.appendChild(
@@ -1369,7 +1408,7 @@ function launchBirthday() {
 
 
   /* ================================================
-     BIRTHDAY TEXT
+     HAPPY BIRTHDAY TEXT
   ================================================= */
 
   setTimeout(
@@ -1407,7 +1446,7 @@ function launchBirthday() {
 
 
   /* ================================================
-     GO TO ENVELOPE
+     MOVE TO ENVELOPE
   ================================================= */
 
   setTimeout(
@@ -1482,7 +1521,9 @@ function launchBirthday() {
 function createTulip() {
 
   const tulip =
-    document.createElement("div");
+    document.createElement(
+      "div"
+    );
 
 
   tulip.className =
@@ -1494,20 +1535,24 @@ function createTulip() {
 
 
   tulip.style.left =
-    Math.random() * 100 + "%";
+    Math.random() * 100 +
+    "%";
 
 
   tulip.style.fontSize =
-    (22 + Math.random() * 22) + "px";
+    (22 + Math.random() * 22) +
+    "px";
 
 
   tulip.style.animationDuration =
-    (4.5 + Math.random() * 3) + "s";
+    (4.5 + Math.random() * 3) +
+    "s";
 
 
   tulip.style.setProperty(
     "--rotation",
-    (-40 + Math.random() * 80) + "deg"
+    (-40 + Math.random() * 80) +
+    "deg"
   );
 
 
