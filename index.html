@@ -28,15 +28,11 @@
     :root {
       --cream: #f8f3ee;
       --paper: #fffdf9;
-
       --wine: #8c5d66;
       --wine-dark: #704952;
-
       --text: #403636;
       --soft-text: #806e6e;
-
       --line: #e3d4ce;
-
       --envelope: #e8d8d0;
       --envelope-dark: #d8c2ba;
     }
@@ -51,13 +47,9 @@
 
     body {
       margin: 0;
-
       background: var(--cream);
-
       color: var(--text);
-
       font-family: "Caveat", cursive;
-
       overflow-x: hidden;
     }
 
@@ -70,11 +62,8 @@
       min-height: 100vh;
 
       display: flex;
-
       flex-direction: column;
-
       align-items: center;
-
       justify-content: center;
 
       text-align: center;
@@ -88,9 +77,7 @@
 
     .hero.hide {
       opacity: 0;
-
       transform: scale(0.96);
-
       pointer-events: none;
     }
 
@@ -101,11 +88,9 @@
       font-family: Arial, sans-serif;
 
       font-size: 10px;
-
       font-weight: 600;
 
       letter-spacing: 4px;
-
       text-transform: uppercase;
 
       color: var(--wine);
@@ -159,7 +144,6 @@
 
     .line {
       width: 48px;
-
       height: 1px;
 
       background: var(--wine);
@@ -179,7 +163,6 @@
       max-width: 400px;
 
       font-size: 22px;
-
       line-height: 1.5;
 
       color: var(--soft-text);
@@ -211,11 +194,9 @@
       font-family: Arial, sans-serif;
 
       font-size: 10px;
-
       font-weight: 600;
 
       letter-spacing: 2px;
-
       text-transform: uppercase;
 
       cursor: pointer;
@@ -241,11 +222,9 @@
       font-family: "Caveat", cursive;
 
       font-size: 16px;
-
       font-weight: 400;
 
       letter-spacing: 0;
-
       text-transform: none;
     }
 
@@ -314,7 +293,9 @@
 
       opacity: 0;
 
-      transform: translateY(8px) scale(0.9);
+      transform:
+        translateY(8px)
+        scale(0.9);
 
       transition:
         opacity 0.35s ease,
@@ -362,7 +343,144 @@
 
 
     /* ==================================================
-       ENVELOPE STAGE
+       BIRTHDAY CELEBRATION
+    ================================================== */
+
+    .birthday-celebration {
+      position: fixed;
+
+      inset: 0;
+
+      z-index: 100;
+
+      display: flex;
+
+      align-items: center;
+      justify-content: center;
+
+      background: var(--cream);
+
+      opacity: 0;
+
+      visibility: hidden;
+
+      overflow: hidden;
+
+      transition:
+        opacity 0.6s ease,
+        visibility 0.6s ease;
+    }
+
+    .birthday-celebration.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+
+    /* Birthday title */
+
+    .birthday-title {
+      position: relative;
+
+      z-index: 20;
+
+      text-align: center;
+
+      font-size:
+        clamp(48px, 12vw, 82px);
+
+      line-height: 0.95;
+
+      color: var(--text);
+
+      opacity: 0;
+
+      transform: scale(0.65);
+    }
+
+    .birthday-celebration.active
+    .birthday-title {
+      animation:
+        birthdayTitleIn
+        1.1s
+        cubic-bezier(.22,1,.36,1)
+        0.65s
+        forwards;
+    }
+
+    .birthday-title span {
+      color: var(--wine);
+    }
+
+
+    /* ==================================================
+       PARTY EMOJIS
+    ================================================== */
+
+    .celebration-confetti {
+      position: absolute;
+
+      inset: 0;
+
+      pointer-events: none;
+
+      z-index: 10;
+    }
+
+    .confetti-party {
+      position: absolute;
+
+      left: 50%;
+      top: 50%;
+
+      font-size: 34px;
+
+      opacity: 0;
+
+      animation:
+        partyExplosion
+        1.5s
+        cubic-bezier(.15,.8,.25,1)
+        forwards;
+    }
+
+
+    /* ==================================================
+       FALLING TULIPS
+    ================================================== */
+
+    .tulips {
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 30;
+
+      pointer-events: none;
+
+      overflow: hidden;
+    }
+
+    .tulip {
+      position: absolute;
+
+      top: -80px;
+
+      font-size: 28px;
+
+      opacity: 0;
+
+      pointer-events: none;
+
+      animation:
+        tulipFall
+        linear
+        forwards;
+    }
+
+
+    /* ==================================================
+       ENVELOPE
     ================================================== */
 
     .envelope-stage {
@@ -375,7 +493,6 @@
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
       background: var(--cream);
@@ -391,7 +508,6 @@
 
     .envelope-stage.active {
       opacity: 1;
-
       visibility: visible;
     }
 
@@ -421,7 +537,8 @@
         cubic-bezier(.22,1,.36,1);
     }
 
-    .envelope-stage.active .envelope {
+    .envelope-stage.active
+    .envelope {
       transform:
         translateY(0)
         scale(1);
@@ -434,7 +551,6 @@
       position: absolute;
 
       left: 8%;
-
       right: 8%;
 
       bottom: 3%;
@@ -452,7 +568,6 @@
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
       color: var(--wine);
@@ -494,9 +609,7 @@
       position: absolute;
 
       left: 0;
-
       right: 0;
-
       bottom: 0;
 
       height: 70%;
@@ -522,11 +635,9 @@
       position: absolute;
 
       left: 0;
-
       top: 0;
 
       width: 100%;
-
       height: 65%;
 
       background: #eadbd4;
@@ -561,14 +672,12 @@
       position: absolute;
 
       left: 50%;
-
       top: 48%;
 
       transform:
         translate(-50%, -50%);
 
       width: 42px;
-
       height: 42px;
 
       border-radius: 50%;
@@ -580,7 +689,6 @@
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
       font-family: Georgia, serif;
@@ -598,7 +706,8 @@
         transform 0.5s ease;
     }
 
-    .envelope-stage.active .seal {
+    .envelope-stage.active
+    .seal {
       opacity: 0;
 
       transform:
@@ -644,8 +753,7 @@
       position: relative;
 
       padding:
-        48px
-        40px;
+        48px 40px;
 
       background: var(--paper);
 
@@ -670,7 +778,7 @@
     }
 
 
-    /* Little heart at the top */
+    /* Heart */
 
     .letter::before {
       content: "♥️";
@@ -695,9 +803,7 @@
 
     .letter p {
       margin:
-        0
-        0
-        24px;
+        0 0 24px;
 
       opacity: 0;
 
@@ -802,7 +908,7 @@
 
 
     /* ==================================================
-       GENERAL ANIMATIONS
+       ANIMATIONS
     ================================================== */
 
     @keyframes fadeUp {
@@ -882,6 +988,99 @@
     }
 
 
+    /* Birthday title */
+
+    @keyframes birthdayTitleIn {
+
+      0% {
+        opacity: 0;
+
+        transform:
+          scale(0.65)
+          translateY(20px);
+      }
+
+      60% {
+        opacity: 1;
+
+        transform:
+          scale(1.06)
+          translateY(0);
+      }
+
+      100% {
+        opacity: 1;
+
+        transform:
+          scale(1)
+          translateY(0);
+      }
+
+    }
+
+
+    /* 🎉 explosion */
+
+    @keyframes partyExplosion {
+
+      0% {
+        opacity: 1;
+
+        transform:
+          translate(-50%, -50%)
+          scale(0.3);
+      }
+
+      25% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+
+        transform:
+          translate(
+            calc(-50% + var(--x)),
+            calc(-50% + var(--y))
+          )
+          rotate(var(--rotation))
+          scale(1.15);
+      }
+
+    }
+
+
+    /* 🌷 falling */
+
+    @keyframes tulipFall {
+
+      0% {
+        opacity: 0;
+
+        transform:
+          translateY(-80px)
+          rotate(0deg);
+      }
+
+      10% {
+        opacity: 0.95;
+      }
+
+      90% {
+        opacity: 0.9;
+      }
+
+      100% {
+        opacity: 0;
+
+        transform:
+          translateY(115vh)
+          rotate(var(--rotation));
+      }
+
+    }
+
+
     /* ==================================================
        MOBILE
     ================================================== */
@@ -890,8 +1089,7 @@
 
       .hero {
         padding:
-          30px
-          18px;
+          30px 18px;
       }
 
       h1 {
@@ -912,15 +1110,12 @@
 
       .letter-section {
         padding:
-          55px
-          15px
-          70px;
+          55px 15px 70px;
       }
 
       .letter {
         padding:
-          35px
-          23px;
+          35px 23px;
 
         font-size: 22px;
 
@@ -941,6 +1136,14 @@
         font-size: 19px;
       }
 
+      .birthday-title {
+        font-size: 58px;
+      }
+
+      .confetti-party {
+        font-size: 29px;
+      }
+
     }
 
 
@@ -953,9 +1156,11 @@
       *,
       *::before,
       *::after {
-        animation-duration: 0.01ms !important;
+        animation-duration:
+          0.01ms !important;
 
-        transition-duration: 0.01ms !important;
+        transition-duration:
+          0.01ms !important;
       }
 
     }
@@ -1013,9 +1218,7 @@
     </button>
 
 
-    <!--
-      The number and message will appear here.
-    -->
+    <!-- CLICK FEEDBACK -->
 
     <div
       class="click-feedback"
@@ -1040,6 +1243,43 @@
 
 
   <!-- ==================================================
+       BIRTHDAY CELEBRATION
+  ================================================== -->
+
+  <div
+    class="birthday-celebration"
+    id="birthdayCelebration"
+  >
+
+    <div
+      class="celebration-confetti"
+      id="celebrationConfetti"
+    ></div>
+
+
+    <div class="birthday-title">
+
+      Happy Birthday,
+
+      <br>
+
+      <span>
+        Meu Amor ❤️
+      </span>
+
+    </div>
+
+
+    <div
+      class="tulips"
+      id="tulips"
+    ></div>
+
+  </div>
+
+
+
+  <!-- ==================================================
        ENVELOPE
   ================================================== -->
 
@@ -1051,14 +1291,10 @@
     <div class="envelope">
 
 
-      <!-- Letter inside envelope -->
-
       <div class="envelope-letter">
         For you.
       </div>
 
-
-      <!-- Envelope front -->
 
       <div class="envelope-front">
 
@@ -1068,8 +1304,6 @@
 
       </div>
 
-
-      <!-- Wax seal -->
 
       <div class="seal">
         ♥️
@@ -1091,6 +1325,11 @@
   >
 
     <article class="letter">
+
+
+      <p>
+        Meu amor, minha Pitoka!
+      </p>
 
 
       <p>
@@ -1177,9 +1416,9 @@
   <script>
 
 
-    /* --------------------------------------------------
+    /* ==================================================
        ELEMENTS
-    -------------------------------------------------- */
+    ================================================== */
 
     const openButton =
       document.getElementById("openButton");
@@ -1199,17 +1438,30 @@
     const clickMessage =
       document.getElementById("clickMessage");
 
+    const birthdayCelebration =
+      document.getElementById(
+        "birthdayCelebration"
+      );
 
-    /* --------------------------------------------------
+    const celebrationConfetti =
+      document.getElementById(
+        "celebrationConfetti"
+      );
+
+    const tulips =
+      document.getElementById("tulips");
+
+
+    /* ==================================================
        CLICK COUNTER
-    -------------------------------------------------- */
+    ================================================== */
 
     let clickCount = 0;
 
 
-    /* --------------------------------------------------
+    /* ==================================================
        26 MESSAGES
-    -------------------------------------------------- */
+    ================================================== */
 
     const messages = [
 
@@ -1268,38 +1520,32 @@
     ];
 
 
-    /* --------------------------------------------------
-       SHOW MESSAGE
-    -------------------------------------------------- */
+    /* ==================================================
+       SHOW CLICK MESSAGE
+    ================================================== */
 
     function showClickMessage(
       number,
       message
     ) {
 
-      /*
-        First remove the old
-        visible state.
-      */
+      clickNumber.classList.remove(
+        "visible"
+      );
 
-      clickNumber.classList.remove("visible");
+      clickMessage.classList.remove(
+        "visible"
+      );
 
-      clickMessage.classList.remove("visible");
 
-
-      /*
-        Force the browser to
-        restart the animation.
-      */
+      /* Restart animation */
 
       void clickNumber.offsetWidth;
 
       void clickMessage.offsetWidth;
 
 
-      /*
-        Set new content.
-      */
+      /* Insert content */
 
       clickNumber.textContent =
         number;
@@ -1308,20 +1554,22 @@
         message;
 
 
-      /*
-        Show them.
-      */
+      /* Show */
 
-      clickNumber.classList.add("visible");
+      clickNumber.classList.add(
+        "visible"
+      );
 
-      clickMessage.classList.add("visible");
+      clickMessage.classList.add(
+        "visible"
+      );
 
     }
 
 
-    /* --------------------------------------------------
-       BUTTON CLICK
-    -------------------------------------------------- */
+    /* ==================================================
+       OPEN BUTTON
+    ================================================== */
 
     openButton.addEventListener(
       "click",
@@ -1330,9 +1578,9 @@
         clickCount++;
 
 
-        /* ----------------------------------------------
+        /* ==============================================
            CLICKS 1–25
-        ---------------------------------------------- */
+        ============================================== */
 
         if (clickCount < 26) {
 
@@ -1342,9 +1590,7 @@
           );
 
 
-          /*
-            Small button bounce.
-          */
+          /* Button bounce */
 
           openButton.animate(
 
@@ -1368,6 +1614,7 @@
                 transform:
                   "scale(1)"
               }
+
             ],
 
             {
@@ -1385,19 +1632,15 @@
         }
 
 
-        /* ----------------------------------------------
+        /* ==============================================
            CLICK 26
-        ---------------------------------------------- */
+        ============================================== */
 
         showClickMessage(
           26,
           "Okay… you earned it. ❤️"
         );
 
-
-        /*
-          Make button look finished.
-        */
 
         openButton.classList.add(
           "success"
@@ -1407,82 +1650,248 @@
 
 
         /*
-          Wait so she can read
-          the final message.
+          Give her a moment to see
+          number 26.
         */
 
         setTimeout(
           function () {
 
-            /*
-              Fade away opening.
-            */
-
-            hero.classList.add(
-              "hide"
-            );
-
-
-            /*
-              Show envelope.
-            */
-
-            envelopeStage.classList.add(
-              "active"
-            );
+            startBirthdayCelebration();
 
           },
-
-          1200
-        );
-
-
-        /*
-          Give the envelope
-          enough time to open.
-        */
-
-        setTimeout(
-          function () {
-
-            envelopeStage.classList.remove(
-              "active"
-            );
-
-          },
-
-          4300
-        );
-
-
-        /*
-          Reveal letter.
-        */
-
-        setTimeout(
-          function () {
-
-            letterSection.classList.add(
-              "visible"
-            );
-
-
-            /*
-              Scroll to letter.
-            */
-
-            letterSection.scrollIntoView({
-              behavior: "smooth",
-              block: "start"
-            });
-
-          },
-
-          4700
+          900
         );
 
       }
     );
+
+
+    /* ==================================================
+       BIRTHDAY CELEBRATION
+    ================================================== */
+
+    function startBirthdayCelebration() {
+
+
+      /*
+        Show celebration screen.
+      */
+
+      birthdayCelebration.classList.add(
+        "active"
+      );
+
+
+      /* ==============================================
+         🎉 EXPLOSION
+      ============================================== */
+
+      for (
+        let i = 0;
+        i < 26;
+        i++
+      ) {
+
+        const party =
+          document.createElement("div");
+
+
+        party.className =
+          "confetti-party";
+
+
+        party.textContent =
+          "🎉";
+
+
+        /*
+          Create a full circular
+          explosion.
+        */
+
+        const angle =
+          (Math.PI * 2 / 26) * i;
+
+
+        const distance =
+          160 +
+          Math.random() * 250;
+
+
+        const x =
+          Math.cos(angle) *
+          distance;
+
+
+        const y =
+          Math.sin(angle) *
+          distance;
+
+
+        party.style.setProperty(
+          "--x",
+          `${x}px`
+        );
+
+
+        party.style.setProperty(
+          "--y",
+          `${y}px`
+        );
+
+
+        party.style.setProperty(
+          "--rotation",
+          `${Math.random() * 360}deg`
+        );
+
+
+        party.style.animationDelay =
+          `${Math.random() * 0.18}s`;
+
+
+        celebrationConfetti.appendChild(
+          party
+        );
+
+      }
+
+
+      /* ==============================================
+         🌷 TULIPS
+      ============================================== */
+
+      for (
+        let i = 0;
+        i < 28;
+        i++
+      ) {
+
+        setTimeout(
+          function () {
+
+            const tulip =
+              document.createElement("div");
+
+
+            tulip.className =
+              "tulip";
+
+
+            tulip.textContent =
+              "🌷";
+
+
+            /*
+              Random horizontal
+              starting position.
+            */
+
+            tulip.style.left =
+              `${Math.random() * 100}%`;
+
+
+            /*
+              Different falling
+              speeds.
+            */
+
+            const duration =
+              4.5 +
+              Math.random() * 3.5;
+
+
+            tulip.style.animationDuration =
+              `${duration}s`;
+
+
+            /*
+              Slightly different
+              sizes.
+            */
+
+            tulip.style.fontSize =
+              `${22 + Math.random() * 18}px`;
+
+
+            /*
+              Natural rotation.
+            */
+
+            tulip.style.setProperty(
+              "--rotation",
+              `${-35 + Math.random() * 70}deg`
+            );
+
+
+            tulips.appendChild(
+              tulip
+            );
+
+
+          },
+          i * 100
+        );
+
+      }
+
+
+      /* ==============================================
+         MOVE TO ENVELOPE
+      ============================================== */
+
+      setTimeout(
+        function () {
+
+          birthdayCelebration.classList.remove(
+            "active"
+          );
+
+
+          hero.classList.add(
+            "hide"
+          );
+
+
+          envelopeStage.classList.add(
+            "active"
+          );
+
+        },
+        5200
+      );
+
+
+      /* ==============================================
+         REVEAL LETTER
+      ============================================== */
+
+      setTimeout(
+        function () {
+
+          envelopeStage.classList.remove(
+            "active"
+          );
+
+
+          letterSection.classList.add(
+            "visible"
+          );
+
+
+          letterSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+
+        },
+        9000
+      );
+
+    }
+
 
   </script>
 
